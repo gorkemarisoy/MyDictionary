@@ -22,10 +22,25 @@ namespace MyDictionary
             Z[] tempValues = values;       //geçici values
             keys = new T[keys.Length + 1]; //keys'de 1 yer açtık
             values = new Z[values.Length + 1];  //values'de 1 yer açtık
-            keys = tempKeys;    //eski keysleri atadık
-            values = tempValues;    //eski valuesleri atadık
+            for (int i = 0; i < tempKeys.Length; i++)
+            {
+                keys[i] = tempKeys[i];    //eski keysleri atadık
+                values[i] = tempValues[i];    //eski valuesleri atadık 
+            }
+            
             keys[keys.Length - 1] = key;    //yeni gönderilen keyi yazdık
             values[values.Length - 1] = value;  //yeni gönderilen values yazdık
+        }
+
+        public void Listele()
+        {
+            for (int i = 0; i < keys.Length; i++)
+            {
+                Console.WriteLine("Öğ.No    :" +keys[i]);
+                Console.WriteLine("Öğ.Ad Soyad  :"+values[i]);
+            }
+
+            
         }
     }
 }
